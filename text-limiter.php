@@ -46,7 +46,7 @@ if ( ! class_exists( 'Text_Limiter' ) )
 		{
 			if ( ! isset( $field['limit'] ) || ! is_numeric( $field['limit'] ) || ! $field['limit'] > 0 )
 			{
-				return '';
+				return $input_html;
 			}
 
 			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
