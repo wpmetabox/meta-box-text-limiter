@@ -28,7 +28,11 @@ Text Limiter is an extension for [Meta Box plugin](http://wordpress.org/plugins/
 1. Upload `text-limiter` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-To start using text limiter, just add `'limit' => 20` (any number) to `text` and `textarea` fields.
+To start using text limiter, just add the following parameters to `text` or `textarea` fields:
+
+`'limit'      => 20, // Number of characters or words
+'limit_type' => 'character', // Limit by 'character' or 'word'. Optional. Default is 'character'`
+
 
 == Frequently Asked Questions ==
 
