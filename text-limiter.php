@@ -4,13 +4,15 @@
  * Plugin URI: http://metabox.io
  * Description: Limit number of characters or words entered for text and textarea fields
  * Author: ThaoHa, Rilwis
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author URI: http://metabox.io
  */
 
 add_action( 'rwmb_before', array( 'Text_Limiter', 'register' ) );
-add_filter( 'rwmb_get_value', array( 'Text_Limiter', 'get_value'), 10, 4 );
-add_filter( 'rwmb_the_value', array( 'Text_Limiter', 'the_value'), 10, 4 );
+$rwmb_get_filter = version_compare( RWMB_VER, '4.8.2', '<' ) ? 'rwmb_get_field' : 'rwmb_get_value';
+add_filter( $rwmb_get_filter, array( 'Text_Limiter', 'get_value'), 10, 4 );
+$rwmb_the_filter = version_compare( RWMB_VER, '4.8.2', '<' ) ? 'rwmb_the_field' : 'rwmb_the_value';
+add_filter( $rwmb_the_filter, array( 'Text_Limiter', 'the_value'), 10, 4 );
 add_action( 'admin_enqueue_scripts', array( 'Text_Limiter', 'admin_enqueue_scripts' ) );
 
 if ( ! class_exists( 'Text_Limiter' ) )
