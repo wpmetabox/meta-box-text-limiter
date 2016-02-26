@@ -9,6 +9,8 @@
  */
 
 add_action( 'rwmb_before', array( 'Text_Limiter', 'register' ) );
+add_filter( 'rwmb_get_field', array( 'Text_Limiter', 'get_field'), 10, 4 );
+add_filter( 'rwmb_the_field', array( 'Text_Limiter', 'the_field'), 10, 4 );
 add_action( 'admin_enqueue_scripts', array( 'Text_Limiter', 'admin_enqueue_scripts' ) );
 
 if ( ! class_exists( 'Text_Limiter' ) )
@@ -58,6 +60,49 @@ if ( ! class_exists( 'Text_Limiter' ) )
 						<span class="counter">0</span>/<span class="maximum">' . $field['limit'] . '</span>
 					</span>
 				</div>';
+		}
+		
+		/**
+		 * Filters the value of a field
+		 * 
+		 * @see rwmb_get_field() in meta-box/inc/functions.php for explenation
+		 * 
+		 * @param string $value
+		 * @param array $field
+		 * @param array $args
+		 * @param int $post_id
+		 * @return string
+		 */
+		public static function get_field($value, $field, $args, $post_id) {
+			if (!in_array($field['type'],self::$types) || !isset($field['limit']) || !is_numeric($field['limit']) || !$field['limit'] > 0) {
+				return $value;
+			}
+
+			$type = isset($field['limit_type']) ? $field['limit_type'] : 'character';
+			if ($type == "word") {
+				$value_array = preg_split('/\s+/', $value, -1, PREG_SPLIT_NO_EMPTY);
+			} else {
+				$value_array = explode('', $value, $field['limit']);
+			}
+
+			$value = implode(" ", array_slice($value_array, 0, $field['limit']));
+
+			return $value;
+		}
+		
+		/**
+		 * Filters the displayed value of a field
+		 * 
+		 * @see rwmb_the_field() in meta-box/inc/functions.php for explenation
+		 * 
+		 * @param string $output
+		 * @param array $field
+		 * @param array $args
+		 * @param int $post_id
+		 * @return string
+		 */
+		public static function the_field( $output, $field, $args, $post_id) {
+			return self::get_field($output, $field, $args, $post_id);
 		}
 
 		/**
