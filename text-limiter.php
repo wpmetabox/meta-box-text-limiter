@@ -9,8 +9,8 @@
  */
 
 add_action( 'rwmb_before', array( 'Text_Limiter', 'register' ) );
-add_filter( 'rwmb_get_field', array( 'Text_Limiter', 'get_field'), 10, 4 );
-add_filter( 'rwmb_the_field', array( 'Text_Limiter', 'the_field'), 10, 4 );
+add_filter( 'rwmb_get_field', array( 'Text_Limiter', 'get_value'), 10, 4 );
+add_filter( 'rwmb_the_field', array( 'Text_Limiter', 'the_value'), 10, 4 );
 add_action( 'admin_enqueue_scripts', array( 'Text_Limiter', 'admin_enqueue_scripts' ) );
 
 if ( ! class_exists( 'Text_Limiter' ) )
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Text_Limiter' ) )
 		 * @param int $post_id
 		 * @return string
 		 */
-		public static function get_field($value, $field, $args, $post_id) {
+		public static function get_value($value, $field, $args, $post_id) {
 			if (!in_array($field['type'],self::$types) || !isset($field['limit']) || !is_numeric($field['limit']) || !$field['limit'] > 0) {
 				return $value;
 			}
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Text_Limiter' ) )
 		 * @param int $post_id
 		 * @return string
 		 */
-		public static function the_field( $output, $field, $args, $post_id) {
+		public static function the_value( $output, $field, $args, $post_id) {
 			return self::get_field($output, $field, $args, $post_id);
 		}
 
