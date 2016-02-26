@@ -10,10 +10,14 @@
 
 add_action( 'rwmb_before', array( 'Text_Limiter', 'register' ) );
 
+/* Pre Meta Box 4.8.2 */
 add_filter( 'rwmb_get_field', array( 'Text_Limiter', 'get_value'), 10, 4 );
-add_filter( 'rwmb_get_value', array( 'Text_Limiter', 'get_value'), 10, 4 );
 add_filter( 'rwmb_the_field', array( 'Text_Limiter', 'the_value'), 10, 4 );
+
+/* Meta Box 4.8.2 and above */
+add_filter( 'rwmb_get_value', array( 'Text_Limiter', 'get_value'), 10, 4 );
 add_filter( 'rwmb_the_value', array( 'Text_Limiter', 'the_value'), 10, 4 );
+
 add_action( 'admin_enqueue_scripts', array( 'Text_Limiter', 'admin_enqueue_scripts' ) );
 
 if ( ! class_exists( 'Text_Limiter' ) )
