@@ -40,7 +40,7 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 == Changelog ==
 
-= 1.2.2 =
+= 1.0.1 =
 * Improvement: Added front-end text-limiting functionality
 
 = 1.0.0 =

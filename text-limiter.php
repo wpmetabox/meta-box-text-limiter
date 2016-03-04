@@ -4,7 +4,7 @@
  * Plugin URI: http://metabox.io
  * Description: Limit number of characters or words entered for text and textarea fields
  * Author: ThaoHa, Rilwis
- * Version: 1.2.2
+ * Version: 1.0.1
  * Author URI: http://metabox.io
  */
 
