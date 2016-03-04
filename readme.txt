@@ -4,7 +4,7 @@ Donate link: http://www.deluxeblogtips.com/donate
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 1.0.0
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Limit number of characters or words entered for text and textarea fields in meta
 
 == Description ==
 
-Text Limiter is an extension for [Meta Box plugin](http://wordpress.org/plugins/meta-box/) which allows you to limit number of characters or words entered for text and textarea fields.
+Text Limiter is an extension for [Meta Box plugin](https://metabox.io) which allows you to limit number of characters or words entered for text and textarea fields.
 
 ### Plugin Links
 
@@ -39,6 +39,9 @@ To start using text limiter, just add the following parameters to `text` or `tex
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.2 =
+* Improvement: Added front-end text-limiting functionality
 
 = 1.0.0 =
 * First release

@@ -4,19 +4,19 @@
  * Plugin URI: http://metabox.io
  * Description: Limit number of characters or words entered for text and textarea fields
  * Author: ThaoHa, Rilwis
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author URI: http://metabox.io
  */
 
 add_action( 'rwmb_before', array( 'Text_Limiter', 'register' ) );
 
 /* Pre Meta Box 4.8.2 */
-add_filter( 'rwmb_get_field', array( 'Text_Limiter', 'get_value'), 10, 4 );
-add_filter( 'rwmb_the_field', array( 'Text_Limiter', 'the_value'), 10, 4 );
+add_filter( 'rwmb_get_field', array( 'Text_Limiter', 'get_value' ), 10, 4 );
+add_filter( 'rwmb_the_field', array( 'Text_Limiter', 'the_value' ), 10, 4 );
 
 /* Meta Box 4.8.2 and above */
-add_filter( 'rwmb_get_value', array( 'Text_Limiter', 'get_value'), 10, 4 );
-add_filter( 'rwmb_the_value', array( 'Text_Limiter', 'the_value'), 10, 4 );
+add_filter( 'rwmb_get_value', array( 'Text_Limiter', 'get_value' ), 10, 4 );
+add_filter( 'rwmb_the_value', array( 'Text_Limiter', 'the_value' ), 10, 4 );
 
 add_action( 'admin_enqueue_scripts', array( 'Text_Limiter', 'admin_enqueue_scripts' ) );
 
@@ -68,48 +68,56 @@ if ( ! class_exists( 'Text_Limiter' ) )
 					</span>
 				</div>';
 		}
-		
+
 		/**
 		 * Filters the value of a field
-		 * 
+		 *
 		 * @see rwmb_get_field() in meta-box/inc/functions.php for explenation
-		 * 
+		 *
 		 * @param string $value
-		 * @param array $field
-		 * @param array $args
-		 * @param int $post_id
+		 * @param array  $field
+		 * @param array  $args
+		 * @param int    $post_id
 		 * @return string
 		 */
-		public static function get_value($value, $field, $args, $post_id) {
-			if (!in_array($field['type'],self::$types) || !isset($field['limit']) || !is_numeric($field['limit']) || !$field['limit'] > 0) {
+		public static function get_value( $value, $field, $args, $post_id )
+		{
+			if ( ! in_array( $field['type'], self::$types ) || ! isset( $field['limit'] ) || ! is_numeric( $field['limit'] ) || ! $field['limit'] > 0 )
+			{
 				return $value;
 			}
 
-			$type = isset($field['limit_type']) ? $field['limit_type'] : 'character';
-			if ($type == "word") {
-				$value_array = preg_split('/\s+/', $value, -1, PREG_SPLIT_NO_EMPTY);
-			} else {
-				$value_array = explode('', $value, $field['limit']);
+			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
+			if ( 'word' == $type )
+			{
+				$value_array = preg_split( '/\s+/', $value, - 1, PREG_SPLIT_NO_EMPTY );
+				$delimiter   = ' ';
+			}
+			else
+			{
+				$value_array = explode( '', $value, $field['limit'] );
+				$delimiter   = '';
 			}
 
-			$value = implode(" ", array_slice($value_array, 0, $field['limit']));
+			$value = implode( $delimiter, array_slice( $value_array, 0, $field['limit'] ) );
 
 			return $value;
 		}
-		
+
 		/**
 		 * Filters the displayed value of a field
-		 * 
+		 *
 		 * @see rwmb_the_field() in meta-box/inc/functions.php for explenation
-		 * 
+		 *
 		 * @param string $output
-		 * @param array $field
-		 * @param array $args
-		 * @param int $post_id
+		 * @param array  $field
+		 * @param array  $args
+		 * @param int    $post_id
 		 * @return string
 		 */
-		public static function the_value( $output, $field, $args, $post_id) {
-			return self::get_field($output, $field, $args, $post_id);
+		public static function the_value( $output, $field, $args, $post_id )
+		{
+			return self::get_value( $output, $field, $args, $post_id );
 		}
 
 		/**
