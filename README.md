@@ -1,7 +1,7 @@
 # Meta Box Text Limiter Plugin
 
-[![Total Downloads](https://img.shields.io/wordpress/plugin/dt/text-limiter.svg)](http://wordpress.org/plugins/text-limiter/)
-[![WordPress](https://img.shields.io/wordpress/v/text-limiter.svg)](http://wordpress.org/plugins/text-limiter/)
+[![Total Downloads](https://img.shields.io/wordpress/plugin/dt/meta-box-text-limiter.svg)](http://wordpress.org/plugins/text-limiter/)
+[![WordPress](https://img.shields.io/wordpress/v/meta-box-text-limiter.svg)](http://wordpress.org/plugins/text-limiter/)
 [![License](https://img.shields.io/packagist/l/rilwis/meta-box.svg)](https://metabox.io)
 
 ***
@@ -21,7 +21,7 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 **Plugin Links**
 
-- [Project Page](http://metabox.io/plugins/text-limiter/)
-- [Documentation](http://metabox.io/docs/)
+- [Project Page](https://metabox.io/plugins/text-limiter/)
+- [Documentation](https://metabox.io/docs/)
 - [Report Bugs/Issues](https://github.com/rilwis/text-limiter/issues)
-- [Premium Extensions](http://metabox.io)
+- [Premium Extensions](https://metabox.io)
