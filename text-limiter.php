@@ -95,7 +95,7 @@ if ( ! class_exists( 'Text_Limiter' ) )
 			}
 			else
 			{
-				$value_array = explode( '', $value, $field['limit'] );
+				$value_array = str_split( $value );
 				$delimiter   = '';
 			}
 
@@ -121,9 +121,7 @@ if ( ! class_exists( 'Text_Limiter' ) )
 		}
 
 		/**
-		 * Enqueue assets
-		 *
-		 * @return void
+		 * Enqueue assets.
 		 */
 		public static function admin_enqueue_scripts()
 		{
