@@ -1,7 +1,7 @@
 # Meta Box Text Limiter Plugin
 
-[![Total Downloads](https://img.shields.io/wordpress/plugin/dt/meta-box-text-limiter.svg)](http://wordpress.org/plugins/text-limiter/)
-[![WordPress](https://img.shields.io/wordpress/v/meta-box-text-limiter.svg)](http://wordpress.org/plugins/text-limiter/)
+[![Total Downloads](https://img.shields.io/wordpress/plugin/dt/meta-box-text-limiter.svg)](http://wordpress.org/plugins/meta-box-text-limiter/)
+[![WordPress](https://img.shields.io/wordpress/v/meta-box-text-limiter.svg)](http://wordpress.org/plugins/meta-box-text-limiter/)
 [![License](https://img.shields.io/packagist/l/rilwis/meta-box.svg)](https://metabox.io)
 
 ***
