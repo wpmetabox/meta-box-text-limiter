@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Meta Box Text Limiter
- * Plugin URI: https://metabox.io
+ * Plugin URI: https://metabox.io/plugins/meta-box-text-limiter/
  * Description: Limit number of characters or words entered for text and textarea fields
  * Author: ThaoHa, Anh Tran
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author URI: https://metabox.io
  *
  * @package Meta Box
@@ -88,15 +88,12 @@ class Text_Limiter {
 		}
 
 		$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
-		if ( 'word' === $type ) {
-			$value_array = preg_split( '/\s+/', $value, - 1, PREG_SPLIT_NO_EMPTY );
-			$delimiter   = ' ';
-		} else {
-			$value_array = str_split( $value );
-			$delimiter   = '';
+		if ( 'character' === $type ) {
+			return function_exists( 'mb_substr' ) ? mb_substr( $value, 0, $field['limit'] ) : substr( $value, 0, $field['limit'] );
 		}
 
-		$value = implode( $delimiter, array_slice( $value_array, 0, $field['limit'] ) );
+		$value = preg_split( '/\s+/', $value, - 1, PREG_SPLIT_NO_EMPTY );
+		$value = implode( ' ', array_slice( $value, 0, $field['limit'] ) );
 
 		return $value;
 	}

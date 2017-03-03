@@ -3,8 +3,8 @@ Contributors: metabox, rilwis, fitwp
 Donate link: http://www.deluxeblogtips.com/donate
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
 Requires at least: 3.5
-Tested up to: 4.5
-Stable tag: 1.0.2
+Tested up to: 4.7.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ To start using text limiter, just add the following parameters to `text` or `tex
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.3 =
+* Fix: Multi-bytes characters are cut from the frontend.
 
 = 1.0.2 =
 * Fix: Warning in helper function if using limit by character.
