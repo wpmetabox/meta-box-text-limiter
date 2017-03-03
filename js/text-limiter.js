@@ -1,29 +1,22 @@
 /* global jQuery */
 
-jQuery( function ( $ )
-{
+jQuery( function ( $ ) {
 	'use strict';
 
 	var Limiter = {
 		/**
 		 * Initializing function
 		 */
-		init: function ()
-		{
-			$( '.text-limiter' ).each( function ()
-			{
+		init: function () {
+			$( '.text-limiter' ).each( function () {
 				var $input = $( this ).closest( '.rwmb-input' ),
 					$clone = $( '.rwmb-clone', $input );
 
-				if ( $clone.length )
-				{
-					$clone.each( function ()
-					{
+				if ( $clone.length ) {
+					$clone.each( function () {
 						Limiter.limit( $( this ) );
 					} );
-				}
-				else
-				{
+				} else {
 					Limiter.limit( $input );
 				}
 			} );
@@ -34,13 +27,12 @@ jQuery( function ( $ )
 		/**
 		 * Add limiter for input
 		 *
-		 * @param $inputWrapper The jQuery object for wrapper input
+		 * @param $wrapper The jQuery object for wrapper input
 		 */
-		limit: function ( $inputWrapper )
-		{
-			var $limiter = $( '.text-limiter', $inputWrapper ),
+		limit: function ( $wrapper ) {
+			var $limiter = $( '.text-limiter', $wrapper ),
 				maximum = parseInt( $( '.maximum', $limiter ).text() ),
-				$input = $( 'input[type=text]', $inputWrapper ).length ? $( 'input[type=text]', $inputWrapper ) : $( 'textarea', $inputWrapper ),
+				$input = $( 'input[type=text]', $wrapper ).length ? $( 'input[type=text]', $wrapper ) : $( 'textarea', $wrapper ),
 				$counter = $( '.counter', $limiter ),
 				$countByWord = 'word' == $limiter.data( 'limit-type' );
 
@@ -49,19 +41,16 @@ jQuery( function ( $ )
 			$counter.html( length );
 
 			// Count the input when typing
-			$input.on( 'input', function ()
-			{
+			$input.on( 'input', function () {
 				var text = $input.val();
 				length = Limiter.count( $input.val(), $countByWord );
 
-				if ( length > maximum )
-				{
+				if ( length > maximum ) {
 					text = Limiter.subStr( text, 0, maximum, $countByWord );
 					$input.val( text );
 					$counter.html( maximum );
 				}
-				else
-				{
+				else {
 					$counter.html( length );
 				}
 			} );
@@ -70,15 +59,12 @@ jQuery( function ( $ )
 		/**
 		 * Bind limiter for new clone input
 		 */
-		cloneHandle: function ()
-		{
-			$( '.add-clone' ).on( 'click', function ()
-			{
+		cloneHandle: function () {
+			$( '.add-clone' ).on( 'click', function () {
 				var $input = $( this ).closest( '.rwmb-input' );
 
 				// Set timeout for bind event after create new clone
-				setTimeout( function ()
-				{
+				setTimeout( function () {
 					var $clone = $( '.rwmb-clone', $input ).last();
 
 					// Reset display counter
@@ -96,10 +82,10 @@ jQuery( function ( $ )
 		 * @param countByWord
 		 * @returns Integer
 		 */
-		count: function ( val, countByWord )
-		{
-			if ( $.trim( val ) == '' )
+		count: function ( val, countByWord ) {
+			if ( $.trim( val ) == '' ) {
 				return 0;
+			}
 
 			return countByWord ? val.match( /\S+/g ).length : val.length;
 		},
@@ -113,10 +99,10 @@ jQuery( function ( $ )
 		 * @param subByWord
 		 * @returns {string}
 		 */
-		subStr: function ( val, start, len, subByWord )
-		{
-			if ( !subByWord )
+		subStr: function ( val, start, len, subByWord ) {
+			if ( ! subByWord ) {
 				return val.substr( start, len );
+			}
 
 			var lastIndexSpace = val.lastIndexOf( ' ' );
 
