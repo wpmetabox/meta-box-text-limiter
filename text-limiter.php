@@ -102,8 +102,11 @@ class Text_Limiter {
 	 * Enqueue assets.
 	 */
 	public function admin_enqueue_scripts() {
-		wp_enqueue_style( 'text-limiter', plugin_dir_url( __FILE__ ) . 'css/text-limiter.css' );
-		wp_enqueue_script( 'text-limiter', plugin_dir_url( __FILE__ ) . 'js/text-limiter.js', array( 'jquery' ), '', true );
+		// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
+		list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
+		
+		wp_enqueue_style( 'text-limiter', $url . 'css/text-limiter.css' );
+		wp_enqueue_script( 'text-limiter', $url . 'js/text-limiter.js', array( 'jquery' ), '', true );
 	}
 }
 
