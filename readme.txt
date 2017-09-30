@@ -1,10 +1,10 @@
 === Meta Box Text Limiter ===
-Contributors: metabox, rilwis, fitwp
-Donate link: http://www.deluxeblogtips.com/donate
+Contributors: metabox, rilwis
+Donate link: https://metabox.io
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
 Requires at least: 3.5
-Tested up to: 4.7.2
-Stable tag: 1.0.3
+Tested up to: 4.8.2
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,17 +23,24 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 ### Plugin Links
 
-- [Project Page](http://metabox.io/plugins/text-limiter/)
-- [Documentation](http://metabox.io/docs/)
+- [Project Page](https://metabox.io/plugins/text-limiter/)
+- [Documentation](https://metabox.io/docs/)
 - [Github repo](https://github.com/rilwis/text-limiter)
-- [View other premium extensions](http://metabox.io)
+- [View other extensions](https://metabox.io/plugins/)
 
 == Installation ==
 
-1. Install [Meta Box plugin](http://wordpress.org/plugins/meta-box/)
-1. Unzip the download package
-1. Upload `text-limiter` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+You need to install [Meta Box](https://metabox.io) plugin first
+
+- Go to Plugins | Add New and search for Meta Box
+- Click **Install Now** button to install the plugin
+- After installing, click **Activate Plugin** to activate the plugin
+
+Install **Meta Box Text Limiter** extension
+
+- Go to **Plugins | Add New** and search for **Meta Box Text Limiter**
+- Click **Install Now** button to install the plugin
+- After installing, click **Activate Plugin** to activate the plugin
 
 To start using text limiter, just add the following parameters to `text` or `textarea` fields:
 
@@ -46,6 +53,9 @@ To start using text limiter, just add the following parameters to `text` or `tex
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.4 =
+* Changed: Allow the plugin to be included in themes/plugins.
 
 = 1.0.3 =
 * Fix: Multi-bytes characters are cut from the frontend.
