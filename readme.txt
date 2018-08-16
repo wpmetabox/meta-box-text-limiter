@@ -54,6 +54,9 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 == Changelog ==
 
+= 1.1.0 =
+* Changed: Rewrite the JavaScript, making it work for cloneable groups.
+
 = 1.0.4 =
 * Changed: Allow the plugin to be included in themes/plugins.
 
