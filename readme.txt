@@ -2,9 +2,9 @@
 Contributors: metabox, rilwis
 Donate link: https://metabox.io
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
-Requires at least: 3.5
-Tested up to: 4.8.2
-Stable tag: 1.0.4
+Requires at least: 4.7
+Tested up to: 4.9.8
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Limit number of characters or words entered for text and textarea fields in meta
 
 == Description ==
 
-Text Limiter is an extension for [Meta Box plugin](https://metabox.io) which allows you to limit number of characters or words entered for text and textarea fields.
+Text Limiter is an extension for [Meta Box](https://metabox.io) plugin which allows you to limit number of characters or words entered for text and textarea fields.
 
 ### Usage
 
@@ -23,7 +23,7 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 ### Plugin Links
 
-- [Project Page](https://metabox.io/plugins/text-limiter/)
+- [Project Page](https://metabox.io/plugins/meta-box-text-limiter/)
 - [Documentation](https://metabox.io/docs/)
 - [Github repo](https://github.com/rilwis/text-limiter)
 - [View other extensions](https://metabox.io/plugins/)

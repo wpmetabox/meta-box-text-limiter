@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Meta Box Text Limiter
  * Plugin URI: https://metabox.io/plugins/meta-box-text-limiter/
- * Description: Limit number of characters or words entered for text and textarea fields
+ * Description: Limit number of characters or words entered for text and textarea fields.
+ * Version: 1.1.0
  * Author: MetaBox.io
- * Version: 1.0.4
  * Author URI: https://metabox.io
  *
  * @package    Meta Box
@@ -31,14 +31,10 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 			add_action( 'rwmb_before', array( $this, 'register' ) );
 
 			// Change the output of fields with limit.
-			// Pre Meta Box 4.8.2.
-			add_filter( 'rwmb_get_field', array( $this, 'get_value' ), 10, 2 );
-			add_filter( 'rwmb_the_field', array( $this, 'get_value' ), 10, 2 );
-			// Meta Box 4.8.2+.
 			add_filter( 'rwmb_get_value', array( $this, 'get_value' ), 10, 2 );
 			add_filter( 'rwmb_the_value', array( $this, 'get_value' ), 10, 2 );
 
-			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+			add_action( 'rwmb_enqueue_scripts', array( $this, 'enqueue' ) );
 		}
 
 		/**
@@ -103,7 +99,7 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		/**
 		 * Enqueue assets.
 		 */
-		public function admin_enqueue_scripts() {
+		public function enqueue() {
 			// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
 			list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
 

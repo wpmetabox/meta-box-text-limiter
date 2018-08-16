@@ -1,106 +1,60 @@
-/* global jQuery */
-
 jQuery( function ( $ ) {
 	'use strict';
 
-	var Limiter = {
-		/**
-		 * Initializing function
-		 */
+	var Limiter = function( $el ) {
+		this.$el = $el;
+	}
+
+	Limiter.prototype = {
+		// Initialize everything.
 		init: function () {
-			$( '.text-limiter' ).each( function () {
-				var $input = $( this ).closest( '.rwmb-input' ),
-					$clone = $( '.rwmb-clone', $input );
-
-				if ( $clone.length ) {
-					$clone.each( function () {
-						Limiter.limit( $( this ) );
-					} );
-				} else {
-					Limiter.limit( $input );
-				}
-			} );
-
-			Limiter.cloneHandle();
+			this.initElements();
+			this.addListeners();
+			this.$input.trigger( 'input' );
 		},
 
-		/**
-		 * Add limiter for input
-		 *
-		 * @param $wrapper The jQuery object for wrapper input
-		 */
-		limit: function ( $wrapper ) {
-			var $limiter = $( '.text-limiter', $wrapper ),
-				maximum = parseInt( $( '.maximum', $limiter ).text() ),
-				$input = $( 'input[type=text]', $wrapper ).length ? $( 'input[type=text]', $wrapper ) : $( 'textarea', $wrapper ),
-				$counter = $( '.counter', $limiter ),
-				$countByWord = 'word' == $limiter.data( 'limit-type' );
+		// Initialize elements.
+		initElements: function () {
+			this.$input = this.$el.siblings( '.rwmb-text' );
+			if ( !this.$input.length ) {
+				this.$input = this.$el.siblings( '.rwmb-textarea' );
+			}
+			this.$counter = this.$el.find( '.counter' );
 
-			// Update length for current text
-			var length = Limiter.count( $input.val(), $countByWord );
-			$counter.html( length );
+			this.type = this.$el.data( 'limit-type' );
+			this.max = parseInt( this.$el.find( '.maximum' ).text() );
+		},
 
-			// Count the input when typing
-			$input.on( 'input', function () {
-				var text = $input.val();
-				length = Limiter.count( $input.val(), $countByWord );
+		// Add event listeners for 'input'.
+		addListeners: function () {
+			var that = this;
 
-				if ( length > maximum ) {
-					text = Limiter.subStr( text, 0, maximum, $countByWord );
-					$input.val( text );
-					$counter.html( maximum );
+			this.$input.on( 'input', function () {
+				var value = this.value,
+					length = that.count( value, this.type );
+
+				if ( length > that.max ) {
+					value = that.subStr( value, 0, that.max, this.type );
+					length = that.max;
+					this.value = value;
 				}
-				else {
-					$counter.html( length );
-				}
+
+				that.$counter.html( length );
 			} );
 		},
 
-		/**
-		 * Bind limiter for new clone input
-		 */
-		cloneHandle: function () {
-			$( '.add-clone' ).on( 'click', function () {
-				var $input = $( this ).closest( '.rwmb-input' );
-
-				// Set timeout for bind event after create new clone
-				setTimeout( function () {
-					var $clone = $( '.rwmb-clone', $input ).last();
-
-					// Reset display counter
-					$( '.text-limiter > .counter', $clone ).html( '0' );
-
-					Limiter.limit( $clone );
-				}, 100 );
-			} );
-		},
-
-		/**
-		 * Count for text
-		 *
-		 * @param val
-		 * @param countByWord
-		 * @returns Integer
-		 */
-		count: function ( val, countByWord ) {
+		// Count for text.
+		count: function ( val, type ) {
 			if ( $.trim( val ) == '' ) {
 				return 0;
 			}
 
-			return countByWord ? val.match( /\S+/g ).length : val.length;
+			return 'word' === type ? val.match( /\S+/g ).length : val.length;
 		},
 
-		/**
-		 * Get subString for text by word or characters
-		 *
-		 * @param val
-		 * @param start
-		 * @param len
-		 * @param subByWord
-		 * @returns {string}
-		 */
-		subStr: function ( val, start, len, subByWord ) {
-			if ( ! subByWord ) {
+		// Get subString for text by word or characters.
+		subStr: function ( val, start, len, type ) {
+			if ( 'word' !== type ) {
 				return val.substr( start, len );
 			}
 
@@ -108,7 +62,22 @@ jQuery( function ( $ ) {
 
 			return val.substr( start, lastIndexSpace );
 		}
-	};
+	}
 
-	Limiter.init();
+	function update() {
+		$( '.text-limiter' ).each( function () {
+			var $this = $( this ),
+				controller = $this.data( 'limiterController' );
+			if ( controller ) {
+				return;
+			}
+
+			controller = new Limiter( $this );
+			controller.init();
+			$this.data( 'limiterController', controller );
+		} );
+	}
+
+	update();
+	$( '.rwmb-input' ).on( 'clone', update );
 } );

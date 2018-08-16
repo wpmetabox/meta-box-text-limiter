@@ -1,6 +1,6 @@
 # Meta Box Text Limiter Plugin
 
-Text Limiter is an extension for [Meta Box plugin](https://metabox.io) which allows you to limit number of characters or words entered for text and textarea fields.
+Text Limiter is an extension for [Meta Box](https://metabox.io) plugin which allows you to limit number of characters or words entered for text and textarea fields.
 
 ## Usage
 
@@ -13,7 +13,7 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 ## Plugin Links
 
-- [Project Page](https://metabox.io/plugins/text-limiter/)
+- [Project Page](https://metabox.io/plugins/meta-box-text-limiter/)
 - [Documentation](https://metabox.io/docs/)
 - [Report Bugs/Issues](https://github.com/rilwis/text-limiter/issues)
 - [Premium Extensions](https://metabox.io)
