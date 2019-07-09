@@ -1,8 +1,0 @@
-# Normalize EOL=LF
-* text=auto
-
-# Ignore files when export
-.DS_Store
-Thumbs.db
-.gitattributes export-ignore
-readme.md export-ignore
