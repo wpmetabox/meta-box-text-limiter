@@ -31,10 +31,10 @@ jQuery( function ( $ ) {
 
 			this.$input.on( 'input', function () {
 				var value = this.value,
-					length = that.count( value, this.type );
+					length = that.count( value, that.type );
 
 				if ( length > that.max ) {
-					value = that.subStr( value, 0, that.max, this.type );
+					value = that.subStr( value, 0, that.max, that.type );
 					length = that.max;
 					this.value = value;
 				}
