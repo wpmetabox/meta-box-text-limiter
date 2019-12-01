@@ -1,6 +1,6 @@
 {
   "name": "wpmetabox/text-limiter",
-  "type": "library",
+  "type": "wordpress-plugin",
   "keywords": [
     "wordpress",
     "ui",
@@ -8,8 +8,7 @@
     "wp-admin",
     "meta-box",
     "wordpress-plugin",
-    "custom-field",
-    "custom-post-type"
+    "custom-field"
   ],
   "description": "Limit number of characters or words entered for text and textarea fields in meta boxes.",
   "homepage": "https://metabox.io/plugins/meta-box-text-limiter/",
@@ -19,16 +18,8 @@
     {
       "name": "Tran Ngoc Tuan Anh",
       "email": "anhtnt@elightup.com",
-      "homepage": "https://deluxeblogtips.com",
+      "homepage": "https://metabox.io",
       "role": "Developer"
     }
-  ],
-  "autoload": {
-    "files": [
-      "text-limiter.php"
-    ]
-  },
-  "require": {
-    "wpmetabox/meta-box": "^4.15"
-  }
+  ]
 }
