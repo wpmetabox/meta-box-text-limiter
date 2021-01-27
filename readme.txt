@@ -4,7 +4,7 @@ Donate link: https://metabox.io
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
 Requires at least: 5.0
 Tested up to: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,8 +24,8 @@ To start using text limiter, just add the following parameters to `text` or `tex
 ### Plugin Links
 
 - [Project Page](https://metabox.io/plugins/meta-box-text-limiter/)
-- [Documentation](https://metabox.io/docs/)
-- [Github repo](https://github.com/rilwis/text-limiter)
+- [Documentation](https://docs.metabox.io)
+- [Github repo](https://github.com/wpmetabox/meta-box-text-limiter)
 - [View other extensions](https://metabox.io/plugins/)
 
 == Installation ==
@@ -54,7 +54,7 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 == Changelog ==
 
-= 1.1.1 - 2020-01-27 =
+= 1.1.2 - 2020-01-27 =
 * Fix input references which breaks the functionality.
 
 = 1.1.0 =
