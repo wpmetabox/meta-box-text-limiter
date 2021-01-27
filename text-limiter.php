@@ -12,9 +12,6 @@
  */
 
 if ( ! class_exists( 'MB_Text_Limiter' ) ) {
-	/**
-	 * Text limiter class.
-	 */
 	class MB_Text_Limiter {
 		/**
 		 * List of supported fields.
@@ -23,9 +20,6 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 */
 		protected $types = array( 'text', 'textarea' );
 
-		/**
-		 * Initialize.
-		 */
 		public function init() {
 			add_action( 'rwmb_before', array( $this, 'register' ) );
 
@@ -95,15 +89,12 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 			return $value;
 		}
 
-		/**
-		 * Enqueue assets.
-		 */
 		public function enqueue() {
 			// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
 			list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
 
-			wp_enqueue_style( 'text-limiter', $url . 'css/text-limiter.css' );
-			wp_enqueue_script( 'text-limiter', $url . 'js/text-limiter.js', array( 'jquery' ), '', true );
+			wp_enqueue_style( 'text-limiter', $url . 'text-limiter.css' );
+			wp_enqueue_script( 'text-limiter', $url . 'text-limiter.js', array( 'jquery' ), '', true );
 		}
 	}
 
