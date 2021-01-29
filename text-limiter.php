@@ -74,6 +74,10 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 * @return string
 		 */
 		public function get_value( $value, $field ) {
+			if ( empty( $field ) ) {
+				return $value;
+			}
+
 			if ( ! in_array( $field['type'], $this->types, true ) || empty( $field['limit'] ) || ! is_numeric( $field['limit'] ) ) {
 				return $value;
 			}
