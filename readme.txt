@@ -4,7 +4,7 @@ Donate link: https://metabox.io
 Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
 Requires at least: 5.0
 Tested up to: 5.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,10 @@ To start using text limiter, just add the following parameters to `text` or `tex
 
 == Changelog ==
 
-= 1.1.2 - 2020-01-27 =
+= 1.1.3 - 2021-04-24 =
+* Fix notice "Trying to access array offset" (by checking field value if field not found).
+
+= 1.1.2 - 2021-01-27 =
 * Fix input references which breaks the functionality.
 
 = 1.1.0 =
