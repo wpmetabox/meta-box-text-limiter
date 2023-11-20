@@ -19,6 +19,12 @@ jQuery( function ( $ ) {
 			if ( !this.$input.length ) {
 				this.$input = this.$el.siblings( '.rwmb-textarea' );
 			}
+			if ( !this.$input.length ) {
+				let tmce = this.$el.siblings( '.tmce-active' ).contents().filter('.wp-editor-container').contents().filter('textarea');
+				this.$tmceEditorId = tmce[0].id;
+				this.$input  = $( '#' + this.$tmceEditorId );
+			}
+
 			this.$counter = this.$el.find( '.counter' );
 
 			this.type = this.$el.data( 'limit-type' );
@@ -37,6 +43,9 @@ jQuery( function ( $ ) {
 					value = that.subStr( value, 0, that.max, that.type );
 					length = that.max;
 					this.value = value;
+					if( that.$tmceEditorId ) {
+						$('#' + that.$tmceEditorId + '_ifr').contents().find('body').html( value );
+					}
 				}
 
 				that.$counter.html( length );
