@@ -35,7 +35,7 @@ jQuery( function ( $ ) {
 		addListeners: function () {
 			var that = this;
 
-			this.$input.on( 'input', function () {
+			this.$input.on( 'input change', function () {
 				var value = this.value,
 					length = that.count( value, that.type );
 
