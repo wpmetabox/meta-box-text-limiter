@@ -31,6 +31,7 @@ jQuery( function ( $ ) {
 				} else {
 					this.$input = this.$el.siblings( '.html-active' ).contents().filter( '.wp-editor-container' ).contents().filter('textarea');
 				}
+				this.switchBtn = this.$el.siblings( '.wp-editor-wrap' ).contents().filter( '.wp-editor-tools' ).contents().filter( '.wp-editor-tabs' ).contents().filter( '.wp-switch-editor' );
 			}
 
 			this.$counter = this.$el.find( '.counter' );
@@ -57,7 +58,7 @@ jQuery( function ( $ ) {
 				} );
 			} else {
 				this.$input.on( 'input change', function () {
-					var value = tinyMCE.get( that.$tmceEditorId ).getContent({ format: 'text' });
+					var value = tinyMCE.get( that.$tmceEditorId ).getContent( { format: 'text' } );
 						length = that.count( value, that.type );
 
 					if ( length > that.max ) {
@@ -66,14 +67,20 @@ jQuery( function ( $ ) {
 						this.value = value;
 
 						tinyMCE.get( that.$tmceEditorId ).setContent( value, {format : 'html'} );
-						tinyMCE.activeEditor.selection.select(tinyMCE.activeEditor.getBody(), true);
-						tinyMCE.activeEditor.selection.collapse(false);
+						tinyMCE.activeEditor.selection.select( tinyMCE.activeEditor.getBody(), true );
+						tinyMCE.activeEditor.selection.collapse( false );
 					}
 
 					that.$counter.html( length );
 				} );
 			}
-
+			if ( that.switchBtn ) {
+				that.switchBtn.on( 'mouseup', function () {
+					setTimeout( () => {
+						that.initElements()
+					}, 200 );
+				});
+			}
 		},
 
 		// Count for text.
