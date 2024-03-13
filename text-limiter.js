@@ -25,10 +25,12 @@ jQuery( function ( $ ) {
 				let tmce = this.$el.siblings( '.tmce-active' ).contents().filter( '.wp-editor-container' ).contents().filter('textarea');
 
 				if ( tmce.length > 0 ) {
+					// wysiwyg in tmce mode
 					this.$tmceEditorId = tmce[0].id;
 					this.$input  = $( '#' + this.$tmceEditorId );
 					this.isTinymce = true;
 				} else {
+					// wysiwyg in html mode
 					this.$input = this.$el.siblings( '.html-active' ).contents().filter( '.wp-editor-container' ).contents().filter('textarea');
 				}
 				this.switchBtn = this.$el.siblings( '.wp-editor-wrap' ).contents().filter( '.wp-editor-tools' ).contents().filter( '.wp-editor-tabs' ).contents().filter( '.wp-switch-editor' );
@@ -68,6 +70,8 @@ jQuery( function ( $ ) {
 
 						tinyMCE.get( that.$tmceEditorId ).setContent( value, {format : 'html'} );
 						tinyMCE.activeEditor.selection.select( tinyMCE.activeEditor.getBody(), true );
+
+						// set cursor to end of value
 						tinyMCE.activeEditor.selection.collapse( false );
 					}
 
