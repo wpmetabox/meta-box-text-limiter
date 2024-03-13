@@ -81,7 +81,9 @@ jQuery( function ( $ ) {
 			if ( that.switchBtn ) {
 				that.switchBtn.on( 'mouseup', function () {
 					setTimeout( () => {
-						that.initElements()
+						that.initElements();
+						that.addListeners();
+						that.$input.trigger( 'input' );
 					}, 200 );
 				});
 			}
