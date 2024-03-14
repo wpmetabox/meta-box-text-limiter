@@ -1,12 +1,22 @@
 .text-limiter {
 	margin-top: -1px;
 }
-.text-limiter > span {
+
+.text-limiter>span {
 	background-color: #f7f7f7;
-	border: 1px solid #7e8993;
-	border-radius: 4px;
-	margin-left: 1px;
+	border: 1px solid #8c8f94;
+	border-radius: 0 0 4px 4px;
 	display: inline-block;
 	padding: 0 5px;
 	font-size: 12px;
+}
+
+input:has(+ .text-limiter),
+textarea:has(+ .text-limiter) {
+	border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+textarea:has(+ .text-limiter) {
+	margin-bottom: -1px;
 }
