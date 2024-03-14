@@ -18,7 +18,7 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 *
 		 * @var array
 		 */
-		protected $types = array( 'text', 'textarea' );
+		protected $types = array( 'text', 'textarea', 'wysiwyg' );
 
 		public function init() {
 			add_action( 'rwmb_before', array( $this, 'register' ) );
