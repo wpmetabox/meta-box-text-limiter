@@ -3,7 +3,7 @@
  * Plugin Name: Meta Box Text Limiter
  * Plugin URI:  https://metabox.io/plugins/meta-box-text-limiter/
  * Description: Limit number of characters or words entered for text and textarea fields.
- * Version:     1.1.3
+ * Version:     1.2.0
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  *

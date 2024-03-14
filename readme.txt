@@ -1,10 +1,10 @@
 === Meta Box Text Limiter ===
 Contributors: metabox, rilwis
 Donate link: https://metabox.io
-Tags: meta-box, custom-fields, custom-field, meta, meta-boxes, text limit, character limit, word limit
-Requires at least: 5.0
-Tested up to: 5.6
-Stable tag: 1.1.3
+Tags: custom fields, meta box, text limit
+Requires at least: 5.9
+Tested up to: 6.4.3
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,11 +12,11 @@ Limit number of characters or words entered for text and textarea fields in meta
 
 == Description ==
 
-Text Limiter is an extension for [Meta Box](https://metabox.io) plugin which allows you to limit number of characters or words entered for text and textarea fields.
+Text Limiter is an extension for [Meta Box](https://metabox.io) plugin which allows you to limit number of characters or words entered for [text](https://docs.metabox.io/fields/text/), [textarea](https://docs.metabox.io/fields/textarea/) and [WYSIWYG](https://docs.metabox.io/fields/wysiwyg/) fields.
 
 ### Usage
 
-To start using text limiter, just add the following parameters to `text` or `textarea` fields:
+To start using text limiter, just add the following parameters to `text`, `textarea` or `wysiwyg` fields:
 
 `'limit'      => 20, // Number of characters or words
 'limit_type' => 'character', // Limit by 'character' or 'word'. Optional. Default is 'character'`
@@ -53,6 +53,10 @@ To start using text limiter, just add the following parameters to `text` or `tex
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.0 - 2024-03-14 =
+- Add support for WYSIWYG field
+- Update the style
 
 = 1.1.3 - 2021-04-24 =
 * Fix notice "Trying to access array offset" (by checking field value if field not found).
