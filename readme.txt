@@ -1,10 +1,10 @@
 === Meta Box Text Limiter ===
-Contributors: metabox, rilwis
+Contributors: metabox, rilwis, paracetamol27
 Donate link: https://metabox.io
 Tags: custom fields, meta box, text limit
 Requires at least: 5.9
-Tested up to: 6.4.3
-Stable tag: 1.2.0
+Tested up to: 6.6.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,16 @@ To start using text limiter, just add the following parameters to `text`, `texta
 - [Documentation](https://docs.metabox.io)
 - [Github repo](https://github.com/wpmetabox/meta-box-text-limiter)
 - [View other extensions](https://metabox.io/plugins/)
+
+### You might also like
+
+If you like this plugin, you might also like our other WordPress products:
+
+- [Slim SEO](https://wpslimseo.com) - A fast, lightweight and full-featured SEO plugin for WordPress with minimal configuration.
+- [Slim SEO Schema](https://wpslimseo.com/products/slim-seo-schema/) - An advanced, powerful and flexible plugin to add schemas to WordPress.
+- [Slim SEO Link Manager](https://wpslimseo.com/products/slim-seo-link-manager/) - Build internal link easier in WordPress with real-time reports.
+- [GretaThemes](https://gretathemes.com) - Free and premium WordPress themes that clean, simple and just work.
+- [Auto Listings](https://wpautolistings.com) - A car sale and dealership plugin for WordPress.
 
 == Installation ==
 
@@ -53,6 +63,9 @@ To start using text limiter, just add the following parameters to `text` or `tex
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.1 - 2024-09-12 =
+- Do not count HTML tags
 
 = 1.2.0 - 2024-03-14 =
 - Add support for WYSIWYG field

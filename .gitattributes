@@ -10,4 +10,5 @@ tests export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
 *.json export-ignore
+phpcs.xml export-ignore
 *.md export-ignore

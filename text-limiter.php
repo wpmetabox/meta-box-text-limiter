@@ -2,13 +2,10 @@
 /**
  * Plugin Name: Meta Box Text Limiter
  * Plugin URI:  https://metabox.io/plugins/meta-box-text-limiter/
- * Description: Limit number of characters or words entered for text and textarea fields.
- * Version:     1.2.0
+ * Description: Limit number of characters or words entered for text, textarea, and wysiwyg fields.
+ * Version:     1.2.1
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
- *
- * @package    Meta Box
- * @subpackage Meta Box Text Limiter
  */
 
 if ( ! class_exists( 'MB_Text_Limiter' ) ) {
@@ -18,16 +15,16 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 *
 		 * @var array
 		 */
-		protected $types = array( 'text', 'textarea', 'wysiwyg' );
+		protected $types = [ 'text', 'textarea', 'wysiwyg' ];
 
 		public function init() {
-			add_action( 'rwmb_before', array( $this, 'register' ) );
+			add_action( 'rwmb_before', [ $this, 'register' ] );
 
 			// Change the output of fields with limit.
-			add_filter( 'rwmb_get_value', array( $this, 'get_value' ), 10, 2 );
-			add_filter( 'rwmb_the_value', array( $this, 'get_value' ), 10, 2 );
+			add_filter( 'rwmb_get_value', [ $this, 'get_value' ], 10, 2 );
+			add_filter( 'rwmb_the_value', [ $this, 'get_value' ], 10, 2 );
 
-			add_action( 'rwmb_enqueue_scripts', array( $this, 'enqueue' ) );
+			add_action( 'rwmb_enqueue_scripts', [ $this, 'enqueue' ] );
 		}
 
 		/**
@@ -35,7 +32,7 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 */
 		public function register() {
 			foreach ( $this->types as $type ) {
-				add_filter( "rwmb_{$type}_html", array( $this, 'show' ), 10, 2 );
+				add_filter( "rwmb_{$type}_html", [ $this, 'show' ], 10, 2 );
 			}
 		}
 
@@ -97,10 +94,10 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 
 		public function enqueue() {
 			// Use helper function to get correct URL to current folder, which can be used in themes/plugins.
-			list( , $url ) = RWMB_Loader::get_path( dirname( __FILE__ ) );
+			list( , $url ) = RWMB_Loader::get_path( __DIR__ );
 
-			wp_enqueue_style( 'text-limiter', $url . 'text-limiter.css' );
-			wp_enqueue_script( 'text-limiter', $url . 'text-limiter.js', array( 'jquery' ), '', true );
+			wp_enqueue_style( 'text-limiter', $url . 'text-limiter.css', [], filemtime( __DIR__ . '/text-limiter.css' ) );
+			wp_enqueue_script( 'text-limiter', $url . 'text-limiter.js', [ 'jquery' ], filemtime( __DIR__ . '/text-limiter.js' ), true );
 		}
 	}
 
