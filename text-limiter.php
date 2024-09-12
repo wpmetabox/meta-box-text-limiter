@@ -82,12 +82,14 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 				return $value;
 			}
 
+			$value = strip_tags( $value );
+
 			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
 			if ( 'character' === $type ) {
 				return function_exists( 'mb_substr' ) ? mb_substr( $value, 0, $field['limit'] ) : substr( $value, 0, $field['limit'] );
 			}
 
-			$value = preg_split( '/\s+/', $value, - 1, PREG_SPLIT_NO_EMPTY );
+			$value = preg_split( '/\s+/', $value, -1, PREG_SPLIT_NO_EMPTY );
 			$value = implode( ' ', array_slice( $value, 0, $field['limit'] ) );
 
 			return $value;
