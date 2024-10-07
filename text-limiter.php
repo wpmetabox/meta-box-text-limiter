@@ -1,11 +1,13 @@
 <?php
 /**
- * Plugin Name: Meta Box Text Limiter
+ * Plugin Name: MB Text Limiter
  * Plugin URI:  https://metabox.io/plugins/meta-box-text-limiter/
  * Description: Limit number of characters or words entered for text, textarea, and wysiwyg fields.
- * Version:     1.2.1
+ * Version:     1.2.2
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
+ * License:     GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! class_exists( 'MB_Text_Limiter' ) ) {
@@ -79,7 +81,7 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 				return $value;
 			}
 
-			$value = strip_tags( $value );
+			$value = strip_tags( $value ); // phpcs:ignore
 
 			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
 			if ( 'character' === $type ) {
