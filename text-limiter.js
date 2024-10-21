@@ -61,8 +61,9 @@ jQuery( function ( $ ) {
 				} );
 			} else {
 				this.$input.on( 'input change', function () {
-					let value = tinyMCE.get( that.$tmceEditorId ).getContent();
-						length = that.count( value, that.type );
+					let tmceEditor = tinyMCE.get(that.$tmceEditorId);
+					let value = tmceEditor ? tmceEditor.getContent() : '';
+					let length = that.count( value, that.type );
 
 					if ( length > that.max ) {
 						value = that.cut( that, value );
@@ -95,7 +96,7 @@ jQuery( function ( $ ) {
 			let length = obj.count( content, obj.type );
 
 			while ( length > obj.max ) {
-				content = content.substring( 0, content.length - 1 );
+				content = content.substring(0, content.length - 1);
 				length = obj.count( content, obj.type );
 			}
 
