@@ -27,7 +27,7 @@ jQuery( function ( $ ) {
 				if ( tmce.length > 0 ) {
 					// wysiwyg in tmce mode
 					this.$tmceEditorId = tmce[ 0 ].id;
-					this.$input  = $( '#' + this.$tmceEditorId );
+					this.$input = $( '#' + this.$tmceEditorId );
 					this.isTinymce = true;
 				} else {
 					// wysiwyg in html mode
@@ -51,7 +51,7 @@ jQuery( function ( $ ) {
 					let value = this.value,
 						length = that.count( value, that.type );
 
-					if ( length > that.max && !that.isTinymce  ) {
+					if ( length > that.max && !that.isTinymce ) {
 						value = that.cut( that, value );
 						length = that.max;
 						this.value = value;
@@ -61,7 +61,7 @@ jQuery( function ( $ ) {
 				} );
 			} else {
 				this.$input.on( 'input change', function () {
-					let tmceEditor = tinyMCE.get(that.$tmceEditorId);
+					let tmceEditor = tinyMCE.get( that.$tmceEditorId );
 					let value = tmceEditor ? tmceEditor.getContent() : '';
 					let length = that.count( value, that.type );
 
@@ -70,7 +70,7 @@ jQuery( function ( $ ) {
 						length = that.max;
 						this.value = value;
 
-						tinyMCE.get( that.$tmceEditorId ).setContent( value, { format : 'html' } );
+						tinyMCE.get( that.$tmceEditorId ).setContent( value, { format: 'html' } );
 						tinyMCE.activeEditor.selection.select( tinyMCE.activeEditor.getBody(), true );
 
 						// set cursor to end of value
@@ -87,7 +87,7 @@ jQuery( function ( $ ) {
 						that.addListeners();
 						that.$input.trigger( 'input' );
 					}, 200 );
-				});
+				} );
 			}
 		},
 
@@ -96,7 +96,7 @@ jQuery( function ( $ ) {
 			let length = obj.count( content, obj.type );
 
 			while ( length > obj.max ) {
-				content = content.substring(0, content.length - 1);
+				content = content.substring( 0, content.length - 1 );
 				length = obj.count( content, obj.type );
 			}
 
