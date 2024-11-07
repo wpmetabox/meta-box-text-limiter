@@ -7,7 +7,7 @@ Thumbs.db
 tests
 vendor
 
-.gitignore
+.distignore
 
 composer.json
 composer.lock
