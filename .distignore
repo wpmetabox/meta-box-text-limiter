@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+
+.git
+.github
+
+tests
+vendor
+
+.gitignore
+
+composer.json
+composer.lock
+
+README.md
