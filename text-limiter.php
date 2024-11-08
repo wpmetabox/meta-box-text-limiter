@@ -81,7 +81,10 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 				return $value;
 			}
 
-			$value = strip_tags( $value ); // phpcs:ignore
+			// Don't truncate if $value contains HTML.
+			if ( str_contains( $value, '<' ) ) {
+				return $value;
+			}
 
 			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
 			if ( 'character' === $type ) {
