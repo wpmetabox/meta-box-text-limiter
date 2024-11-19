@@ -3,8 +3,8 @@ Contributors: metabox, rilwis, paracetamol27
 Donate link: https://metabox.io
 Tags: custom fields, meta box, text limit
 Requires at least: 5.9
-Tested up to: 6.6.2
-Stable tag: 1.2.3
+Tested up to: 6.7
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ To start using text limiter, just add the following parameters to `text` or `tex
 == Screenshots ==
 
 == Changelog ==
+
+= 1.2.4 - 2024-11-19
+Fix WYSIWYG output raw value without HTML tags
 
 = 1.2.3 - 2024-11-01
 Fix cannot update posts
