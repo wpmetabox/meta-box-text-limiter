@@ -12,7 +12,8 @@
 }
 
 input:has(+ .text-limiter),
-textarea:has(+ .text-limiter) {
+textarea:has(+ .text-limiter),
+.rwmb-input-group:has(+ .text-limiter) > *:first-child {
 	border-bottom-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
