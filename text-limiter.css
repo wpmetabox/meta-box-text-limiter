@@ -1,6 +1,6 @@
 .text-limiter {
 	margin-top: -1px;
-	display: flex; /* Fix margin-top not always applied for input group (with prepend & append)
+	display: flex; /* Fix margin-top not always applied for input group (with prepend & append) */
 }
 
 .text-limiter>span {
