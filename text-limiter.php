@@ -81,6 +81,10 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 				return $value;
 			}
 
+			if ( ! is_string( $value ) ) {
+				return $value;
+			}
+
 			// Don't truncate if $value contains HTML.
 			if ( str_contains( $value, '<' ) ) {
 				return $value;
