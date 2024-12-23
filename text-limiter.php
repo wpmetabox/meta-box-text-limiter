@@ -47,12 +47,16 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 * @return string
 		 */
 		public function show( $output, $field ) {
-			if ( ! isset( $field['limit'] ) || ! is_numeric( $field['limit'] ) || ! $field['limit'] > 0 ) {
+			static $run = false;
+
+			if ( $run || ! isset( $field['limit'] ) || ! is_numeric( $field['limit'] ) || ! $field['limit'] > 0 ) {
 				return $output;
 			}
 
 			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
 			$text = 'word' === $type ? __( 'Word Count', 'text-limiter' ) : __( 'Character Count', 'text-limiter' );
+
+			$run = true;
 
 			return $output . '
 				<div class="text-limiter" data-limit-type="' . esc_attr( $type ) . '">
