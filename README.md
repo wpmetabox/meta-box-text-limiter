@@ -2,6 +2,9 @@
 
 Text Limiter is an extension for [Meta Box](https://metabox.io) plugin which allows you to limit number of characters or words entered for [text](https://docs.metabox.io/fields/text/), [textarea](https://docs.metabox.io/fields/textarea/) and [WYSIWYG](https://docs.metabox.io/fields/wysiwyg/) fields.
 
+> **Meta Box Lite**<br>
+> We recommend using [Meta Box Lite](https://metabox.io/lite/), a feature-rich free UI version of Meta Box that provides UI and all free features for managing custom fields and dynamic content on WordPress, including post types, taxonomies, custom fields, and relationships.
+
 ## Usage
 
 To start using text limiter, just add the following parameters to `text`, `textarea`, or `wysiwyg` fields:
