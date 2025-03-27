@@ -62,7 +62,11 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 		 * @return string
 		 */
 		public function show( $output, $field ) {
-			$type = isset( $field['limit_type'] ) ? $field['limit_type'] : 'character';
+			if ( ! isset( $field['limit'] ) || ! is_numeric( $field['limit'] ) || ! $field['limit'] > 0 ) {
+				return $output;
+			}
+
+			$type = $field['limit_type'] ?? 'character';
 			$text = 'word' === $type ? __( 'Word Count', 'text-limiter' ) : __( 'Character Count', 'text-limiter' );
 
 			return $output . '
