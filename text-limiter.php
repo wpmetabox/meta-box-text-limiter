@@ -8,6 +8,8 @@
  * Author URI:  https://metabox.io
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: text-limiter
+ * Domain Path: /languages/
  *
  * Copyright (C) 2010-2025 Tran Ngoc Tuan Anh. All rights reserved.
  *
@@ -42,6 +44,8 @@ if ( ! class_exists( 'MB_Text_Limiter' ) ) {
 			add_filter( 'rwmb_the_value', [ $this, 'get_value' ], 10, 2 );
 
 			add_action( 'rwmb_enqueue_scripts', [ $this, 'enqueue' ] );
+
+			load_plugin_textdomain( 'text-limiter', false, plugin_basename( __DIR__ ) . '/languages/' );
 		}
 
 		/**

@@ -1,0 +1,2 @@
+<?php
+return ['domain'=>'text-limiter','plural-forms'=>'nplurals=2; plural=n != 1;','language'=>'de_DE','project-id-version'=>'Meta Box Text Limiter','pot-creation-date'=>'2025-04-13 13:54+0000','po-revision-date'=>'2025-04-13 13:54+0000','x-generator'=>'Loco https://localise.biz/','messages'=>['Character Count'=>'Zeichenanzahl','Word Count'=>'Wortzahl']];
