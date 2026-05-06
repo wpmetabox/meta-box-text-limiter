@@ -18,5 +18,5 @@ To start using text limiter, just add the following parameters to `text`, `texta
 
 - [Project Page](https://metabox.io/plugins/meta-box-text-limiter/)
 - [Documentation](https://metabox.io/docs/)
-- [Report Bugs/Issues](https://github.com/rilwis/text-limiter/issues)
+- [Report Bugs/Issues](https://github.com/wpmetabox/meta-box-text-limiter/issues)
 - [Premium Extensions](https://metabox.io)
